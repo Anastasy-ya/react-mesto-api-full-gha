@@ -14,3 +14,4 @@ root.render(
   </React.StrictMode>
 );
 reportWebVitals();
+//проверка сообщения между серверами

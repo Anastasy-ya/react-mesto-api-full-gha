@@ -23,6 +23,12 @@ const cookieParser = require('cookie-parser');
 // создает наполнение req.body
 const cors = require('cors');
 
+app.get('/crash-test', () => { // удалить после ревью
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+}); // удалить после ревью
+
 const routes = require('./routes/index');
 
 const errorHandler = require('./middlewares/error');

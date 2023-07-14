@@ -44,9 +44,19 @@ mongoose.connect(DB_URL, {
 
 // CORS
 app.use(cors({
-  origin: ['*'], // потом заменить адрес на постоянный
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'http://158.160.36.92:3000',
+    'http://158.160.36.92',
+    'http://s.anastasy-ya.pet-project.nomoredomains.work:3000',
+    'http://s.anastasy-ya.pet-project.nomoredomains.work',
+    'http://anastasy-ya.pet-project.nomoredomains.work:3000',
+    'http://anastasy-ya.pet-project.nomoredomains.work',
+
+  ], // потом заменить адрес на постоянный
   credentials: true, // разрешить куки
-  methods: ['GET', 'PUT', 'POST', 'PATCH', 'DEL'],
+  // methods: ['GET', 'PUT', 'POST', 'PATCH', 'DEL'],
 }));
 
 // app.use(bodyParser.json()); // был заменен на express.json

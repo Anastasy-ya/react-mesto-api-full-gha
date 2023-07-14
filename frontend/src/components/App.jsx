@@ -42,16 +42,17 @@ function App() {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (localStorage.getItem("jwt")) {
+    // if (localStorage.getItem("jwt")) {
       auth
         .checkToken()
         .then((res) => {
+          console.log(res, 'тут андефинед');
           setIsLoggedIn(true);
           navigate("/", { replace: true });
-          setUserEmail(res.data.email);
+          setUserEmail(res.email); //data.
         })
         .catch(console.error);
-    }
+    // }
   }, []);
 
   React.useEffect(() => {
@@ -70,6 +71,7 @@ function App() {
       api
         .getUserData()
         .then((userData) => {
+          console.log(userData, 'userData');
           setCurrentUser(userData);
         })
         .catch(console.error);
@@ -204,7 +206,7 @@ function App() {
         setUserEmail(email);
         setIsLoggedIn(true);
         navigate("/", { replace: true });
-        localStorage.setItem("jwt", res.token);
+        // localStorage.setItem("jwt", res.token);
       })
       .catch((err) => {
         console.log(err);

@@ -65,7 +65,7 @@ const login = (req, res, next) => {
               sameSite: true,
             });
             // Если совпадает - вернуть пользователя без данных пароля
-            return res.send({ data: user.toJSON() });
+            return res.send(user.toJSON());
           }
           // Если не совпадает - вернуть ошибку
           return next(new JsonWebTokenError('Invalid email or password')); // 403 Неправильный пароль Forbidden заменен 401
@@ -75,11 +75,15 @@ const login = (req, res, next) => {
 };
 
 const getUserData = (req, res, next) => { // users/me
+  // console.log(req.user, 'юзер');
   User.findById(req.user.id)
     .orFail(() => new NotFound('User ID is not found'))
     // если возвращен пустой объект, создать ошибку
     // и потом выполнение кода перейдет в catch, где ошибка будет обработана
-    .then((user) => res.status(http2.HTTP_STATUS_OK).send(user))
+    .then((user) => {
+      // console.log(user, 'распоследний юзер');
+      res.status(http2.HTTP_STATUS_OK).send(user);
+    })
     .catch((err) => {
       if (err.name === 'CastError') {
         return next(new ValidationError('Invalid user ID'));

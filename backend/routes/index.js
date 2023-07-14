@@ -20,7 +20,7 @@ router.use(auth); // миддлвара проверяет наличие кук
 router.use('/cards', cardRoutes); // получает роуты, в которых содержатся запросы и ответы на них
 router.use('/users', userRoutes);
 router.use('*', (_, res, next) => {
-  throw next(new NotFound('Page not found'));
+  throw next(new NotFound('Not found'));
 });
 
 module.exports = router;

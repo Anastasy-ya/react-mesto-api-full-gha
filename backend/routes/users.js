@@ -18,6 +18,6 @@ router.get('/', getUsers);
 router.get('/me', getUserData);
 router.patch('/me', changeProfileDataValidation, changeProfileData);
 router.patch('/me/avatar', changeProfileAvatarValidation, changeProfileAvatar);
-router.get('/:id', getUserByIdValidation, getUserById);
+router.get('/:_id', getUserByIdValidation, getUserById);
 
 module.exports = router;

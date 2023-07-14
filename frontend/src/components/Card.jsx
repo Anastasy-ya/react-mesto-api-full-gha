@@ -2,10 +2,10 @@ import React from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Card({ card, onCardClick, onCardLike, onCardDelete }) {
-  const { name, link, likes, id, owner } = card;
+  const { name, link, likes, _id, owner } = card;
   const currentUser = React.useContext(CurrentUserContext);
-  const isOwn = owner.id === currentUser.id;
-  const isLiked = likes.some((i) => i.id === currentUser.id);
+  const isOwn = owner._id === currentUser._id;
+  const isLiked = likes.some((i) => i._id === currentUser._id);
   const cardLikeButtonClassName = `button-like ${
     isLiked && "button-like_active"
   }`;
@@ -23,7 +23,7 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
           className="elements__delete"
           type="button"
           aria-label="Delete"
-          onClick={() => onCardDelete({ id })}
+          onClick={() => onCardDelete({ _id })}
         />
       )}
 

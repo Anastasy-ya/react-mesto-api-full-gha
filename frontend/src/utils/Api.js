@@ -61,32 +61,32 @@ class Api {
   }
 
   //этот метод будет вызван в публичной функции index.js deleteCard,
-  deleteCard(id) {
-    return fetch(`${this._baseUrl}/cards/${id}`, {
+  deleteCard(_id) {
+    return fetch(`${this._baseUrl}/cards/${_id}`, {
       method: "DELETE",
       headers: this._headers,
       credentials: "include",
     }).then((res) => this._checkResponce(res));
   }
 
-  addLike(id) {//используется только для проекта mesto
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+  addLike(_id) {//используется только для проекта mesto
+    return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
       method: "PUT",
       headers: this._headers,
       credentials: "include",
     }).then((res) => this._checkResponce(res));
   }
 
-  removeLike(id) {//используется только для проекта mesto
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+  removeLike(_id) {//используется только для проекта mesto
+    return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
       method: "DELETE",
       headers: this._headers,
       credentials: "include",
     }).then((res) => this._checkResponce(res));
   }
 
-  changeLikeCardStatus(id, isLiked) {
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+  changeLikeCardStatus(_id, isLiked) {
+    return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
       method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
       credentials: "include",

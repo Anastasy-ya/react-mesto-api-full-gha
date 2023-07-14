@@ -53,7 +53,7 @@ const login = (req, res, next) => {
             // создать JWT
             const jwt = jsonWebToken.sign(
               {
-                id: user.id,
+                _id: user._id,
               },
               NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
             );
@@ -76,7 +76,7 @@ const login = (req, res, next) => {
 
 const getUserData = (req, res, next) => { // users/me
   // console.log(req.user, 'юзер');
-  User.findById(req.user.id)
+  User.findById(req.user._id)
     .orFail(() => new NotFound('User ID is not found'))
     // если возвращен пустой объект, создать ошибку
     // и потом выполнение кода перейдет в catch, где ошибка будет обработана
@@ -99,7 +99,7 @@ const getUsers = (_, res, next) => { // users
 };
 
 const getUserById = (req, res, next) => {
-  User.findById(req.params.id)
+  User.findById(req.params._id)
     .orFail(() => new NotFound('User ID is not found'))
     // если возвращен пустой объект, создать ошибку
     // и потом выполнение кода перейдет в catch, где ошибка будет обработана
@@ -114,7 +114,7 @@ const getUserById = (req, res, next) => {
 
 const changeProfileData = (req, res, next) => { // *
   User.findByIdAndUpdate(
-    req.user.id,
+    req.user._id,
     {
       name: req.body.name,
       about: req.body.about,
@@ -139,7 +139,7 @@ const changeProfileData = (req, res, next) => { // *
 
 const changeProfileAvatar = (req, res, next) => { // *
   User.findByIdAndUpdate(
-    req.user.id,
+    req.user._id,
     {
       avatar: req.body.avatar,
     },

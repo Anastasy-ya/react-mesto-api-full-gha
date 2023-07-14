@@ -22,7 +22,7 @@ const auth = (req, _, next) => {
     payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
   } catch (err) {
     console.log(err, 'ошибка неудачной авторизации');
-    next(new JsonWebTokenError('Unauthorized!')); //!
+    next(new JsonWebTokenError('Unauthorized!'));
   }
   req.user = payload;
   console.log(req.user, 'req.user');

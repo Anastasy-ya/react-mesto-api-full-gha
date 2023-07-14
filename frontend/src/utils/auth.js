@@ -41,5 +41,8 @@ export const checkToken = () => {
       "Content-Type": "application/json",
       // Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
-  }).then((res) => checkResponce(res));
+  }).then((res) => {
+    console.log(res, 'тута');
+    checkResponce(res);
+  });
 };

@@ -27,7 +27,7 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState({
     name: "",
     link: "",
-    _id: ""
+    id: ""
   });
   const [isOpenImage, setIsOpenImage] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({}); //
@@ -82,7 +82,7 @@ function App() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
-    setSelectedCard({ name: "", link: "",_id: "" });
+    setSelectedCard({ name: "", link: "",id: "" });
     setIsOpenImage(false);
     setOpenInfoTooltip(false);
     setIsOpenConfirmationPopup(false);
@@ -101,20 +101,20 @@ function App() {
     setSelectedCard({ name, link });
     setIsOpenImage(true);
   }
-  function handleOpenConfirmationPopup({ _id }) {
+  function handleOpenConfirmationPopup({ id }) {
     setIsOpenConfirmationPopup(true);
-    setSelectedCard({ _id });
+    setSelectedCard({ id });
   }
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i.id === currentUser.id);
 
     api
-      .changeLikeCardStatus(card._id, isLiked)
+      .changeLikeCardStatus(card.id, isLiked)
       .then((newCard) => {
         setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
+          state.map((c) => (c.id === card.d ? newCard : c))
         );
       })
       .catch(console.error);
@@ -123,9 +123,9 @@ function App() {
   function handleCardDelete() {
     setIsLoading(true);
     api
-      .deleteCard(selectedCard._id)
+      .deleteCard(selectedCard.id)
       .then(() => {
-        setCards((state) => state.filter((c) => c._id !== selectedCard._id));
+        setCards((state) => state.filter((c) => c.id !== selectedCard.id));
         closeAllPopups();
       })
       .catch(console.error)

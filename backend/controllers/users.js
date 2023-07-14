@@ -53,7 +53,7 @@ const login = (req, res, next) => {
             // создать JWT
             const jwt = jsonWebToken.sign(
               {
-                id: user._id,
+                id: user.id,
               },
               NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
             );

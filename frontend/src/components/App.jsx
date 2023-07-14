@@ -43,6 +43,7 @@ function App() {
 
   React.useEffect(() => {
     // if (localStorage.getItem("jwt")) {
+      if (localStorage.getItem("token")) {
       auth
         .checkToken()
         .then((res) => {
@@ -52,7 +53,7 @@ function App() {
           setUserEmail(res.email); //data.
         })
         .catch(console.error);
-    // }
+    }
   }, []);
 
   React.useEffect(() => {

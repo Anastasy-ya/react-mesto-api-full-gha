@@ -15,13 +15,19 @@ class Api {
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
+      credentials: "include",
     }).then((res) => this._checkResponce(res));
   } //getInitialCards()
 
   getUserData() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
-    }).then((res) => this._checkResponce(res));
+      credentials: "include",
+      // credentials: "include",
+    }).then((res) => {
+      console.log(res, 'getUserData');
+      this._checkResponce(res)
+    });
   }
 
   setUserData(data) {
@@ -29,6 +35,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
+      credentials: "include",
       body: JSON.stringify(data),
     }).then((res) => this._checkResponce(res));
   } //setUserData
@@ -37,6 +44,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
+      credentials: "include",
       body: JSON.stringify(data),
     }).then((res) => this._checkResponce(res));
   } //addCard
@@ -45,6 +53,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
+      credentials: "include",
       body: JSON.stringify({
         avatar: link,
       }),
@@ -56,6 +65,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
       headers: this._headers,
+      credentials: "include",
     }).then((res) => this._checkResponce(res));
   }
 
@@ -63,6 +73,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: "PUT",
       headers: this._headers,
+      credentials: "include",
     }).then((res) => this._checkResponce(res));
   }
 
@@ -70,6 +81,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: "DELETE",
       headers: this._headers,
+      credentials: "include",
     }).then((res) => this._checkResponce(res));
   }
 
@@ -77,14 +89,15 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
+      credentials: "include",
     }).then((res) => this._checkResponce(res));
   }
 
 } //Api
 
 
-const api = new Api("https://mesto.nomoreparties.co/v1/cohort-62", {
-  authorization: "d5c4048e-b7e4-4333-b5f6-798b19dce01c",
+const api = new Api("http://localhost:3000", {
+  // authorization: "d5c4048e-b7e4-4333-b5f6-798b19dce01c",
   "Content-Type": "application/json",
 });
 

@@ -40,6 +40,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 // подключение к серверу монго
 mongoose.connect(DB_URL, {
   useNewUrlParser: true,
+  family: 4,
 });
 
 // CORS

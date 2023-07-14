@@ -3,6 +3,7 @@ const NotFound = require('../errors/NotFound');
 const {
   createUser,
   login,
+  logOut,
 } = require('../controllers/users');
 const {
   signUpValidation,
@@ -14,6 +15,7 @@ const userRoutes = require('./users');
 
 router.post('/signin', signinValidation, login); // авторизация
 router.post('/signup', signUpValidation, createUser); // регистрация
+router.get('/signout', logOut);
 
 router.use(auth); // миддлвара проверяет наличие кук, располагается перед защищенными роутами
 

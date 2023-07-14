@@ -67,7 +67,7 @@ app.use(express.json()); // создает наполнение req.body
 app.use(helmet()); // набор middleware функций для express,
 // который помогает защитить приложение от уязвимостей и кибератак
 
-app.use(limiter);
+// app.use(limiter); раскомментировать
 
 app.use(cookieParser());
 

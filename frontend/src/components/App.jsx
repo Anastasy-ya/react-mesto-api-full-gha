@@ -43,17 +43,20 @@ function App() {
 
   React.useEffect(() => {
     // if (localStorage.getItem("jwt")) {
-      if (localStorage.getItem("token")) {
+      // if (localStorage.getItem("token")) {
       auth
         .checkToken()
         .then((res) => {
-          console.log(res, 'тут андефинед');
-          setIsLoggedIn(true);
-          navigate("/", { replace: true });
-          setUserEmail(res.email); //data.
+          // console.log(res, 'тут андефинед');
+          if (res) {
+            setIsLoggedIn(true);
+            navigate("/", { replace: true });
+            setUserEmail(res.email);
+            setCurrentUser(res);
+          }
         })
         .catch(console.error);
-    }
+    // }
   }, []);
 
   React.useEffect(() => {
@@ -72,7 +75,7 @@ function App() {
       api
         .getUserData()
         .then((userData) => {
-          console.log(userData, 'userData');
+          // console.log(userData, 'userData');
           setCurrentUser(userData);
         })
         .catch(console.error);
@@ -109,8 +112,8 @@ function App() {
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
-
+    const isLiked = card.likes.some((i) => {
+      return i === currentUser._id});
     api
       .changeLikeCardStatus(card._id, isLiked)
       .then((newCard) => {
@@ -221,9 +224,13 @@ function App() {
   }
 
   function deleteToken() {
-    localStorage.removeItem("jwt");
-    setUserEmail("");
-  }
+    // localStorage.removeItem("jwt");
+    auth.logOut()
+      .then(() => setUserEmail(""))
+      .catch((err) => {
+        console.log(err);
+      })  
+    };
 
   return (
     <div className="root">

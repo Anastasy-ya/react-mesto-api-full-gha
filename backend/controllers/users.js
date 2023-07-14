@@ -159,6 +159,14 @@ const changeProfileAvatar = (req, res, next) => { // *
     });
 };
 
+const logOut = async (req, res, next) => {
+  try {
+    res.clearCookie('jwt').send({ message: 'Logged out' })
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getUsers,
   getUserById,
@@ -167,4 +175,5 @@ module.exports = {
   changeProfileAvatar,
   login,
   getUserData,
+  logOut,
 };

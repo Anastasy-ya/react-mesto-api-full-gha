@@ -26,8 +26,8 @@ class Api {
       credentials: "include",
       // credentials: "include",
     }).then((res) => {
-      console.log(res, 'getUserData');
-      this._checkResponce(res)
+      // console.log(res, 'getUserData');
+      return this._checkResponce(res)
     });
   }
 

@@ -47,12 +47,10 @@ app.use(cors({
   origin: [
     'http://localhost:3000',
     'http://localhost:3001',
-    'http://158.160.36.92:3000',
-    'http://158.160.36.92',
-    'http://s.anastasy-ya.pet-project.nomoredomains.work:3000',
-    'http://s.anastasy-ya.pet-project.nomoredomains.work',
-    'http://anastasy-ya.pet-project.nomoredomains.work:3000',
-    'http://anastasy-ya.pet-project.nomoredomains.work',
+    // 'https://s.anastasy-ya.pet-project.nomoredomains.work:3000',
+    'https://s.anastasy-ya.pet-project.nomoredomains.work',
+    // 'https://anastasy-ya.pet-project.nomoredomains.work:3000',
+    'https://anastasy-ya.pet-project.nomoredomains.work',
 
   ], // потом заменить адрес на постоянный
   credentials: true, // разрешить куки
@@ -67,7 +65,7 @@ app.use(express.json()); // создает наполнение req.body
 app.use(helmet()); // набор middleware функций для express,
 // который помогает защитить приложение от уязвимостей и кибератак
 
-// app.use(limiter); раскомментировать
+app.use(limiter);
 
 app.use(cookieParser());
 

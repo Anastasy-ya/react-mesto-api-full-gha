@@ -97,7 +97,7 @@ class Api {
 } //Api
 
 
-const api = new Api("http://localhost:3000", {
+const api = new Api("https://s.anastasy-ya.pet-project.nomoredomains.work", {
   // authorization: "d5c4048e-b7e4-4333-b5f6-798b19dce01c",
   "Content-Type": "application/json",
 });

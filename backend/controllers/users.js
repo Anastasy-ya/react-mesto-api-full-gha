@@ -161,7 +161,7 @@ const changeProfileAvatar = (req, res, next) => { // *
 
 const logOut = async (req, res, next) => {
   try {
-    res.clearCookie('jwt').send({ message: 'Logged out' })
+    res.clearCookie('jwt').send({ message: 'Logged out' });
   } catch (err) {
     next(err);
   }

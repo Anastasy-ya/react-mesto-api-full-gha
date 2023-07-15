@@ -6,7 +6,6 @@ class Api {
 
   _checkResponce(res) {
     //повторяющийся кот (^˵◕ω◕˵^)(^˵◕ω◕˵^)(^˵◕ω◕˵^)
-    console.log(res, ' _checkResponce')
     if (res.ok) {
       return res.json();
     }

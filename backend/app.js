@@ -32,7 +32,7 @@ const routes = require('./routes/index');
 
 const errorHandler = require('./middlewares/error');
 
-const { DB_URL, PORT } = process.env;
+const { DB_URL = 'mongodb://127.0.0.1:27017/mestodb', PORT } = process.env;
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 

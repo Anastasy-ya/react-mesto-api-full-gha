@@ -42,12 +42,9 @@ function App() {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    // if (localStorage.getItem("jwt")) {
-      // if (localStorage.getItem("token")) {
       auth
         .checkToken()
         .then((res) => {
-          // console.log(res, 'тут андефинед');
           if (res) {
             setIsLoggedIn(true);
             navigate("/", { replace: true });
@@ -56,7 +53,7 @@ function App() {
           }
         })
         .catch(console.error);
-    // }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   React.useEffect(() => {
@@ -75,7 +72,6 @@ function App() {
       api
         .getUserData()
         .then((userData) => {
-          // console.log(userData, 'userData');
           setCurrentUser(userData);
         })
         .catch(console.error);
@@ -224,7 +220,6 @@ function App() {
   }
 
   function deleteToken() {
-    // localStorage.removeItem("jwt");
     auth.logOut()
       .then(() => setUserEmail(""))
       .catch((err) => {

@@ -6,7 +6,6 @@ const User = require('../models/user');
 const ConflictError = require('../errors/ConflictError');
 const JsonWebTokenError = require('../errors/JsonWebTokenError');
 const ValidationError = require('../errors/ValidationError');
-// const Forbidden = require('../errors/Forbidden');
 const NotFound = require('../errors/NotFound');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
@@ -81,7 +80,6 @@ const getUserData = (req, res, next) => { // users/me
     // если возвращен пустой объект, создать ошибку
     // и потом выполнение кода перейдет в catch, где ошибка будет обработана
     .then((user) => {
-      // console.log(user, 'распоследний юзер');
       res.status(http2.HTTP_STATUS_OK).send(user);
     })
     .catch((err) => {

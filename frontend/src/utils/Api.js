@@ -18,28 +18,25 @@ class Api {
       headers: this._headers,
       credentials: "include",
     }).then((res) => this._checkResponce(res));
-  } //getInitialCards()
+  }
 
   getUserData() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
       credentials: "include",
-      // credentials: "include",
     }).then((res) => {
-      // console.log(res, 'getUserData');
       return this._checkResponce(res)
     });
   }
 
   setUserData(data) {
-    //{name, about}
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       credentials: "include",
       body: JSON.stringify(data),
     }).then((res) => this._checkResponce(res));
-  } //setUserData
+  }
 
   addCard(data) {
     return fetch(`${this._baseUrl}/cards`, {
@@ -48,7 +45,7 @@ class Api {
       credentials: "include",
       body: JSON.stringify(data),
     }).then((res) => this._checkResponce(res));
-  } //addCard
+  }
 
   saveAvatar(link) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
@@ -61,7 +58,7 @@ class Api {
     }).then((res) => this._checkResponce(res));
   }
 
-  //этот метод будет вызван в публичной функции index.js deleteCard,
+  //этот метод будет вызван в публичной функции index.js deleteCard
   deleteCard(_id) {
     return fetch(`${this._baseUrl}/cards/${_id}`, {
       method: "DELETE",
@@ -70,7 +67,7 @@ class Api {
     }).then((res) => this._checkResponce(res));
   }
 
-  addLike(_id) {//используется только для проекта mesto
+  addLike(_id) {
     return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
       method: "PUT",
       headers: this._headers,
@@ -78,7 +75,7 @@ class Api {
     }).then((res) => this._checkResponce(res));
   }
 
-  removeLike(_id) {//используется только для проекта mesto
+  removeLike(_id) {
     return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
       method: "DELETE",
       headers: this._headers,

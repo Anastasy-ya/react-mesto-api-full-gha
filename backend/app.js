@@ -19,8 +19,7 @@ const limiter = rateLimit({
 });
 
 const cookieParser = require('cookie-parser');
-// const bodyParser = require('body-parser'); // был заменен на express.json
-// создает наполнение req.body
+
 const cors = require('cors');
 
 app.get('/crash-test', () => { // удалить после ревью
@@ -33,7 +32,7 @@ const routes = require('./routes/index');
 
 const errorHandler = require('./middlewares/error');
 
-const { DB_URL = 'mongodb://127.0.0.1:27017/mestodb', PORT = 3000 } = process.env;
+const { DB_URL, PORT } = process.env;
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -46,20 +45,11 @@ mongoose.connect(DB_URL, {
 // CORS
 app.use(cors({
   origin: [
-    'http://localhost:3000',
     'http://localhost:3001',
-    // 'https://s.anastasy-ya.pet-project.nomoredomains.work:3000',
-    'https://s.anastasy-ya.pet-project.nomoredomains.work',
-    // 'https://anastasy-ya.pet-project.nomoredomains.work:3000',
     'https://anastasy-ya.pet-project.nomoredomains.work',
-
-  ], // потом заменить адрес на постоянный
+  ],
   credentials: true, // разрешить куки
-  // methods: ['GET', 'PUT', 'POST', 'PATCH', 'DEL'],
 }));
-
-// app.use(bodyParser.json()); // был заменен на express.json
-// app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.json()); // создает наполнение req.body
 

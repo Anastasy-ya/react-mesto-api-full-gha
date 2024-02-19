@@ -1,5 +1,3 @@
-[![Статус тестов](../../actions/workflows/tests.yml/badge.svg)](../../actions/workflows/tests.yml)
-
 # react-mesto-api-full
 Приложение-социальная сеть `Mesto`, включающая фронтенд и бэкенд.  
   

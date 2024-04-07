@@ -12,9 +12,9 @@ function PopupWithConfirm({ isOpen, onClose, onConfirm, isLoading }) {
 
   return (
     <PopupWithForm //подключить
-      title={"Вы уверены?"}
+      title={"Are you sure?"}
       formName={"delete"}
-      buttonName={"Да"}
+      buttonName={"Yes"}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={(e) => handleSubmit(e)}

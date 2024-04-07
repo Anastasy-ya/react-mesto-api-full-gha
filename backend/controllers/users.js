@@ -54,7 +54,8 @@ const login = (req, res, next) => {
               {
                 _id: user._id,
               },
-              NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+              NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', // спрятать секретное слово
+              { expiresIn: '7d' },
             );
             // переменная окружения хранит секретое слово для создания куки
             // прикрепить его к куке
@@ -157,7 +158,7 @@ const changeProfileAvatar = (req, res, next) => { // *
     });
 };
 
-const logOut = async (req, res, next) => {
+const logOut = async (_, res, next) => {
   try {
     res.clearCookie('jwt').send({ message: 'Logged out' });
   } catch (err) {

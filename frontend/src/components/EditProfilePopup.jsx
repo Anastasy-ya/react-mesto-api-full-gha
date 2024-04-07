@@ -33,9 +33,9 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isLoading }) {
 
   return (
     <PopupWithForm
-      title={"Редактировать профиль"}
+      title={"Edit profile"}
       formName={"profile-edit"}
-      buttonName={"Cохранить"}
+      buttonName={"Save"}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
@@ -46,7 +46,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isLoading }) {
           type="text"
           name="name"
           className="form__input"
-          placeholder="Вася Пупкин"
+          placeholder="Name"
           required
           minLength="2"
           maxLength="40"
@@ -61,7 +61,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isLoading }) {
           type="text"
           name="about"
           className="form__input"
-          placeholder="Сын маминой подруги"
+          placeholder="Information about user"
           required
           minLength="2"
           maxLength="200"

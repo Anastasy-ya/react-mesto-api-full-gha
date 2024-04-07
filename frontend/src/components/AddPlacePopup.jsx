@@ -53,7 +53,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace, isLoading }) {
           type="url"
           name="link"
           className="form__input"
-          placeholder="Ссылка на картинку"
+          placeholder="Link to image"
           required
           id="form__url-input"
           onChange={(e) => handleChangeLink(e)}

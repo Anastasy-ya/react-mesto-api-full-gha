@@ -15,12 +15,12 @@ function Register({ title, formName, buttonName, onSubmit, isLoading }) {
           isLoading={isLoading}
         />
         <p className="entry-container__subtitle">
-          Уже зарегистрированы?&ensp;
+          Already registered? &ensp;
           <Link
             to="/sign-in"
             className="entry-container__subtitle entry-container__subtitle_type_link"
           >
-            Войти
+            Sign in
           </Link>
         </p>
       </div>

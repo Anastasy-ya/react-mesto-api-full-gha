@@ -6,7 +6,7 @@ function Header({ userEmail, deleteToken }) {
   return (
     <header className="header">
       <div className="header__box">
-        <img className="header__logo" alt="Логотип" src={logo} />
+        <img className="header__logo" alt="Logo" src={logo} />
         <div className="header__info-container">
           <p className="header__text">{userEmail}</p>
           <Routes>
@@ -18,7 +18,7 @@ function Header({ userEmail, deleteToken }) {
                   to="/sign-in"
                   onClick={deleteToken}
                 >
-                  Выйти
+                  Logout
                 </NavLink>
               }
             />
@@ -29,7 +29,7 @@ function Header({ userEmail, deleteToken }) {
                   className="header__text header__link-text"
                   to="/sign-in"
                 >
-                  Войти
+                  Sign in
                 </NavLink>
               }
             />
@@ -40,7 +40,7 @@ function Header({ userEmail, deleteToken }) {
                   className="header__text header__link-text"
                   to="/sign-up"
                 >
-                  Регистрация
+                  Registration
                 </NavLink>
               }
             />

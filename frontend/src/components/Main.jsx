@@ -21,7 +21,7 @@ function Main({
           <button onClick={onEditAvatar} className="profile__overlay">
             <img
               className="profile__avatar"
-              alt="Аватар профиля"
+              alt="Avatar"
               src={currentUser.avatar}
             />
           </button>

@@ -47,7 +47,7 @@ function EntryForm({ title, formName, buttonName, onSubmit, isLoading }) {
               type="password"
               name="password"
               className="form__input form__input_type_black"
-              placeholder="Пароль"
+              placeholder="Password"
               required
               minLength="2"
               maxLength="200"

@@ -14,7 +14,6 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import * as auth from "../utils/auth";
-
 import PopupWithConfirm from "./PopupWithConfirm";
 
 function App() {
@@ -30,12 +29,12 @@ function App() {
     _id: ""
   });
   const [isOpenImage, setIsOpenImage] = React.useState(false);
-  const [currentUser, setCurrentUser] = React.useState({}); //
+  const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const [openInfoTooltip, setOpenInfoTooltip] = useState(false);
-  const [isEntry, setIsEntry] = useState(false); //стейт для инфотула
+  const [isEntry, setIsEntry] = useState(false);
   const [userMessage, setUserMessage] = useState("");
   const [isOpenConfirmationPopup, setIsOpenConfirmationPopup] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -176,7 +175,7 @@ function App() {
       });
   }
 
-  //далее все функции, относящие ся к роутингу и авторизации
+  //далее все функции, относящиеся к роутингу и авторизации
 
   function handleRegister({ email, password }) {
     setIsLoading(true);
@@ -185,12 +184,12 @@ function App() {
       .then((res) => {
         navigate("/sign-in", { replace: true });
         setIsEntry(true);
-        setUserMessage("Вы успешно зарегистрировались!");
+        setUserMessage("You successfully registered");
       })
       .catch((err) => {
         console.log(err);
         setIsEntry(false);
-        setUserMessage("Что-то пошло не так! Попробуйте ещё раз.");
+        setUserMessage("Something going wrong. Please try again!");
       })
       .finally(() => {
         setOpenInfoTooltip(true);
@@ -211,7 +210,7 @@ function App() {
       .catch((err) => {
         console.log(err);
         setIsEntry(false);
-        setUserMessage("Что-то пошло не так! Попробуйте ещё раз.");
+        setUserMessage("Something going wrong. Please try again!");
         setOpenInfoTooltip(true);
       })
       .finally(() => {
@@ -249,9 +248,9 @@ function App() {
               element={
                 <Register
                   onSubmit={handleRegister}
-                  title={"Регистрация"}
+                  title={"Registration"}
                   formName={"sign-up"}
-                  buttonName={"Зарегистрироваться"}
+                  buttonName={"Register"}
                   onclose={closeAllPopups}
                   isLoading={isLoading}
                 />
@@ -263,9 +262,9 @@ function App() {
               element={
                 <Login
                   onSubmit={handleLogin}
-                  title={"Вход"}
+                  title={"Sign in"}
                   formName={"sign-in"}
-                  buttonName={"Войти"}
+                  buttonName={"Sign in"}
                   isLoading={isLoading}
                 />
               }

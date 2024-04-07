@@ -2,9 +2,8 @@
     grid-area: content;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     gap: 50px;
-    /* position: relative; */
     margin: 0 auto;
     padding: 0;
     width: 100%;

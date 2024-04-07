@@ -46,6 +46,7 @@ mongoose.connect(DB_URL, {
 app.use(cors({
   origin: [
     'http://localhost:3001',
+    'http://localhost:3000',
     'https://anastasy-ya.pet-project.nomoredomains.work',
   ],
   credentials: true, // разрешить куки
@@ -56,11 +57,11 @@ app.use(express.json()); // создает наполнение req.body
 app.use(helmet()); // набор middleware функций для express,
 // который помогает защитить приложение от уязвимостей и кибератак
 
-app.use(limiter);
-
 app.use(cookieParser());
 
 app.use(requestLogger); // логгер запросов
+
+app.use(limiter);
 
 app.use(routes);
 

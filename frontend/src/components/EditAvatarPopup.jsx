@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
 function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar, isLoading }) {
@@ -16,9 +16,9 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar, isLoading }) {
 
   return (
     <PopupWithForm
-      title={"Обновить аватар"}
+      title={"Update avatar"}
       formName={"reload-avatar"}
-      buttonName={"Cохранить"}
+      buttonName={"Save"}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
@@ -29,7 +29,7 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar, isLoading }) {
           type="url"
           name="link"
           className="form__input"
-          placeholder="Ссылка на картинку"
+          placeholder="Link to image"
           required
           id="form__avatar-url-input"
           ref={avatar}

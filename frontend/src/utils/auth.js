@@ -1,4 +1,4 @@
-export const baseUrl = "http://localhost:3000"; //"http://localhost:3000/" "https://s.anastasy-ya.pet-project.nomoredomains.work"
+export const baseUrl = "http://s.anastasy-ya.pet-project.nomoredomains.work"; //"http://localhost:3000/" "https://s.anastasy-ya.pet-project.nomoredomains.work"
 
 function checkResponce(res) {
   //повторяющийся кот (^˵◕ω◕˵^)(^˵◕ω◕˵^)(^˵◕ω◕˵^)

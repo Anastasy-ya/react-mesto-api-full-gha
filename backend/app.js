@@ -48,6 +48,7 @@ app.use(cors({
     'http://localhost:3001',
     'http://localhost:3000',
     'https://anastasy-ya.pet-project.nomoredomains.work',
+    'https://s.anastasy-ya.pet-project.nomoredomains.work',
   ],
   credentials: true, // разрешить куки
 }));

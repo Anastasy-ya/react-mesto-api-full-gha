@@ -24,8 +24,8 @@ The project was made with vanilla JavaScript [link](https://github.com/Anastasy-
 and then remade with React
 
 Full writing history:<br>
-[Фронтенд](https://github.com/Anastasy-ya/react-mesto-auth)<br>
-[Бэкенд](https://github.com/Anastasy-ya/express-mesto-gha)<br>
+[frontend](https://github.com/Anastasy-ya/react-mesto-auth)<br>
+[backend](https://github.com/Anastasy-ya/express-mesto-gha)<br>
 
 *Functionality:*
 - Social network application with registration.

@@ -37,7 +37,7 @@ Full writing history:<br>
 - When opening the edit name and user information pop-up, the fields are filled with the values displayed on the page.
 - Pop-ups open by clicking on the corresponding button and close by clicking on the "x", overlay, button ESC, form submit.
 - Routes are protected by authentication.
-- JWT token stored in local storage.
+- JWT token stored in the cookie, react states in the local storage.
 - A backend has been written for the project using Node.js.<br>
 
 [Figma layout](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)

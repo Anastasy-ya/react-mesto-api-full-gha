@@ -93,7 +93,7 @@ class Api {
 }
 
 
-const api = new Api("http://s.anastasy-ya.pet-project.nomoredomains.work", {//"http://localhost:3000"
+const api = new Api("https://s.anastasy-ya.pet-project.nomoredomains.work", {//"http://localhost:3000"
   "Content-Type": "application/json",
 });
 

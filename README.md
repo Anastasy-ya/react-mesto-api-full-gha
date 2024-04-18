@@ -1,11 +1,10 @@
 # mesto-full
 Приложение-социальная сеть `Mesto`, включающая фронтенд и бэкенд.  
   
-<!--## Ссылки на проект
-
+## Ссылки на проект
+Приложение развернуто на сервере
 Frontend https://anastasy-ya.pet-project.nomoredomains.work/
-Backend https://s.anastasy-ya.pet-project.nomoredomains.work/-->
-
+Backend https://s.anastasy-ya.pet-project.nomoredomains.work/
 
 Практическая работа для изучения React
 
